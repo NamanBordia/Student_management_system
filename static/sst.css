@@ -1,0 +1,107 @@
+
+
+
+body {
+    margin: 0;
+    padding: 20px;    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Clean and modern font */
+    background-color: #D3D3D3;
+    
+}
+
+
+h1 {
+    text-align: center;s
+    color:  #ff9d01; /* Dark color for contrast */
+    margin-bottom: 30px; /* Add some spacing below the title */
+    text-decoration: underline;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2.5em;
+
+    
+}
+
+/* Styling for section headers */
+h2 {
+    color: #000000;
+    font-size: 2em; /* Increase font size for emphasis */
+    margin-bottom: 20px; /* Add spacing below section headers */
+    text-decoration: rgb(30, 29, 29) 1px 1px;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+.grid
+{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+
+
+/* Basic styling for forms */
+form {
+    margin: 15px 0;
+    padding: 20px;
+    background-color: #ffffff;
+    
+    color: black;
+    border-radius: 8px;
+    box-shadow: 0 0 10px black;
+    width: 500px;
+
+}
+
+/* Inputs in forms */
+input {
+    font-size: 1em;
+    padding: 12px;
+    margin-bottom: 15px; /* Add more spacing between inputs */
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%; /* Make inputs full-width */
+    box-sizing: border-box; /* Include padding and border in the width */
+    background-color: #ffffff;
+    border-color: rgb(0, 0, 0);
+    color: rgb(5, 5, 5);
+}
+
+/* Form buttons */
+input[type="submit"] {
+    background-color: rgb(29, 99, 4); /* Blue button */
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 12px;  
+    border-radius: 6px;
+    transition: background-color 0.3s; /* Smooth transition on hover */
+}
+
+/* Hover effect for form buttons */
+input[type="submit"]:hover {
+    background-color: #09a104; /* Darker blue on hover */
+}
+
+/* Styling for unordered lists */
+ul {
+    list-style-type: none; /* Remove bullets */
+    padding: 0;
+}
+
+/* Styling for list items */
+li {
+    background-color: #D3D3D3;
+    color:black;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-family: cursive;
+}
+
+
+/* Style for search results section */
+#search-results {
+    margin-top: 30px;
+}
+
+
+

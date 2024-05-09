@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="/static/sst.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    
+    <h1>Student Management System</h1>
+    
+    <!-- Display list of students -->
+    <div class="content">
+        <div class="head" align="center">
+            <h2>All Students</h2>
+            <ul>
+                {% for student in students %}
+                    <li>ID: {{ student[0] }}, Name: {{ student[1] }}, Age: {{ student[2] }}, Grade: {{ student[3] }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        
+        <div class="grid">
+            <!-- Add a new student -->
+            <div class="grid-item", align = "center">
+                <h2>Add Student</h2>
+                <form action="/add" method="post">
+                    Name: <input type="text" name="name" required><br>
+                    Age: <input type="number" name="age" required><br>
+                    Grade: <input type="number" name="grade" required><br>
+                    <input type="submit" value="Add Student">
+                </form>
+            </div>
+
+            <!-- Update a student -->
+            <div class="grid-item" align= "center">
+                <h2>Update Student</h2>
+                <form action="/update" method="post">
+                    ID: <input type="number" name="id" required><br>
+                    Name: <input type="text" name="name"><br>
+                    Age: <input type="number" name="age"><br>
+                    Grade: <input type="number" name="grade"><br>
+                    <input type="submit" value="Update Student">
+                </form>
+            </div>
+      
+        </div>
+
+        <!-- Grid between Delete and Search sections -->
+        <section class="grid">
+            <!-- Delete a student -->
+            <div class="grid-item" align= "center">
+                <h2>Delete Student</h2>
+                <form action="/delete" method="post">
+                    ID: <input type="number" name="id" required><br>
+                    <input type="submit" value="Delete Student">
+                </form>
+            </div>
+
+            <!-- Search for students -->
+            <div class="grid-item" align= "center">
+                <h2>Search Students</h2>
+                <form action="/search" method="get">
+                    Query: <input type="text" name="query"><br>
+                    <input type="submit" value="Search">
+                </form>
+            </div>
+        </section>
+
+        <div id="search-results"></div>
+        
+    </div>
+    
+    <!-- Script to handle search results -->
+    <script>
+        document.querySelector('form[action="/search"]').addEventListener('submit', function(event) {
+            event.preventDefault();
+            fetch(`/search?query=${document.querySelector('input[name="query"]').value}`)
+                .then(response => response.json())
+                .then(data => {
+                    const resultsDiv = document.getElementById('search-results');
+                    resultsDiv.innerHTML = '';
+                    data.forEach(student => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = `ID: ${student[0]}, Name: ${student[1]}, Age: ${student[2]}, Grade: ${student[3]}`;
+                        resultsDiv.appendChild(listItem);
+                    });
+    
+                    // Extract grades from data for chart
+                    const grades = data.map(student => student[3]);
+    
+                    // Generate line chart
+                    });
+                });;
+    </script>
+    
+</body>
+</html>
